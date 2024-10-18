@@ -7,7 +7,18 @@ export default defineNuxtConfig({
     compatibilityDate: '2024-04-03',
     future: {compatibilityVersion: 4},
     devtools: {enabled: true},
-    modules: ['@pinia/nuxt', '@nuxthub/core', 'nuxt-auth-utils', '@nuxtjs/tailwindcss', 'shadcn-nuxt'],
+    modules: ['@pinia/nuxt', '@nuxthub/core', 'nuxt-auth-utils', '@nuxtjs/tailwindcss', 'shadcn-nuxt','@nuxt/fonts'],
+    fonts:{
+        families: [
+            {
+                name: 'Geist',
+                provider: 'local',
+                weights: [100,200,300,400,500,600,700,800,900],
+                display: 'swap',
+                fallbacks: ['Arial', 'Helvatica'],
+            },
+        ],
+    },
     shadcn: {
         /**
          * Prefix for all the imported component

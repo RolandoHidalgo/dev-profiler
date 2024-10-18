@@ -11,17 +11,23 @@
     "prepare": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/fonts": "^0.10.0",
     "@radix-icons/vue": "^1.0.0",
+    "@vee-validate/zod": "^4.13.2",
+    "@vueuse/core": "^11.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "lucide-vue-next": "^0.453.0",
     "nuxt": "^3.13.0",
     "nuxt-auth-utils": "^0.4.4",
     "radix-vue": "^1.9.7",
     "shadcn-nuxt": "^0.10.4",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
+    "vee-validate": "^4.13.2",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@nuxthub/core": "^0.7.27",
