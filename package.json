@@ -5,6 +5,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "dev:remote": "nuxi dev --remote",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -33,7 +34,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@nuxthub/core": "^0.7.27",
+    "@nuxthub/core": "^0.7.34",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@pinia/nuxt": "^0.5.5",
     "drizzle-kit": "^0.26.2",
