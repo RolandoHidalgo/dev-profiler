@@ -1,6 +1,10 @@
 <script setup lang="ts">
 
 const {user,clear} = useUserSession();
+async function logOut(){
+  await clear();
+  navigateTo('/')
+}
 </script>
 
 <template>
@@ -17,7 +21,7 @@ const {user,clear} = useUserSession();
       <DropdownMenuLabel class="font-normal flex">
         <div class="flex flex-col space-y-1">
           <p class="text-sm font-medium leading-none">
-            shadcn
+            {{ user.login }}
           </p>
           <p class="text-xs leading-none text-muted-foreground">
             {{ user.name }}
@@ -41,7 +45,7 @@ const {user,clear} = useUserSession();
 <!--        <DropdownMenuItem>New Team</DropdownMenuItem>-->
       </DropdownMenuGroup>
       <DropdownMenuSeparator />
-      <DropdownMenuItem @click="clear">
+      <DropdownMenuItem @click="logOut">
         Log out
         <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
       </DropdownMenuItem>
