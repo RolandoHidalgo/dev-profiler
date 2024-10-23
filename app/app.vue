@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { GithubLogoIcon } from '@radix-icons/vue'
 import {Code2 } from 'lucide-vue-next'
+//import {useColorMode} from "@vueuse/core";
+//const colorMode = useColorMode()
+//colorMode.value = 'dark'
 const {loggedIn} = useUserSession();
+
 </script>
 <template>
   <NuxtLoadingIndicator />

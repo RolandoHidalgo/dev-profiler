@@ -3,14 +3,27 @@ import {StarIcon} from '@radix-icons/vue'
 
 const route = useRoute()
 const {data, status} = await useFetch('/api/github/repos')
+const {user} = useUserSession()
 </script>
 
 <template>
   <div>
-    <Avatar class="h-20 w-20">
-      <AvatarImage :src="`https://github.com/${route.params.id}.png`" :alt="route.params.id" />
-      <AvatarFallback>SC</AvatarFallback>
-    </Avatar>
+    <div class="flex items-center space-x-4">
+      <Avatar class="h-20 w-20">
+        <AvatarImage :src="`https://github.com/${route.params.id}.png`" :alt="route.params.id" />
+        <AvatarFallback>SC</AvatarFallback>
+      </Avatar>
+      <div>
+        <p class="text-sm font-medium leading-none">
+          {{user.login}}
+        </p>
+        <p class="text-sm text-muted-foreground">
+          {{ user.name }}
+        </p>
+      </div>
+    </div>
+
+    <SkillsSection/>
     <div class="grid grid-cols-3 gap-4 w-full">
       <div
           v-for="item in data"
