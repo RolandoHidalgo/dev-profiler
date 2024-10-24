@@ -10,6 +10,7 @@ const {loggedIn} = useUserSession();
 <template>
   <NuxtLoadingIndicator />
   <NuxtRouteAnnouncer/>
+  <Toaster />
   <div class="flex-col md:flex">
     <div class="border-b">
       <div class="flex h-16 items-center px-4">
@@ -23,6 +24,7 @@ const {loggedIn} = useUserSession();
         </h1>
         <MainNav class="mx-6"/>
         <div class="ml-auto flex items-center space-x-4">
+          <ThemeSwitcher/>
           <NuxtLink to="/api/auth/github" external v-if="!loggedIn">
             <Button variant="outline">
               <GithubLogoIcon class="w-4 h-4 mr-2"/>

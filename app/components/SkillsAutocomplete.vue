@@ -11,7 +11,7 @@ const {data:items} = await useFetch('/api/skills');
       name="skill"
   >
     <FormItem>
-      <FormLabel>{{ props.label }}</FormLabel>
+<!--      <FormLabel>{{ props.label }}</FormLabel>-->
 
       <Select v-bind="componentField">
         <SelectTrigger>
@@ -23,7 +23,7 @@ const {data:items} = await useFetch('/api/skills');
             <SelectItem
                 v-for="item in items"
                 :key="item.id"
-                :value="item.name"
+                :value="item.id.toString()"
             >
 
 

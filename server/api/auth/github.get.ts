@@ -8,7 +8,8 @@ export default defineOAuthGitHubEventHandler({
         if (!dbUser) {
             await useDrizzle().insert(tables.users).values({
                 githubId: user.id,
-                githubToken: tokens.access_token
+                githubToken: tokens.access_token,
+                userName:user.login
             });
 
         } else {
@@ -16,9 +17,9 @@ export default defineOAuthGitHubEventHandler({
                 githubToken: tokens.access_token
             })
         }
-        useOctokit(tokens.access_token);
+        //useOctokit(tokens.access_token);
 
-        useDrizzle()
+        //useDrizzle()
         await setUserSession(event, {user})
         return sendRedirect(event, `/profile/${user.login}`)
     },

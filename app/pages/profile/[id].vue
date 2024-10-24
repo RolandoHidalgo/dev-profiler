@@ -7,8 +7,8 @@ const {user} = useUserSession()
 </script>
 
 <template>
-  <div>
-    <div class="flex items-center space-x-4">
+  <div class="grid grid-cols-3 gap-1 w-full">
+    <div class="flex items-center space-x-4 mb-1 col-span-3">
       <Avatar class="h-20 w-20">
         <AvatarImage :src="`https://github.com/${route.params.id}.png`" :alt="route.params.id" />
         <AvatarFallback>SC</AvatarFallback>
@@ -22,13 +22,13 @@ const {user} = useUserSession()
         </p>
       </div>
     </div>
+    <div class="grid grid-cols-2 gap-1 w-full">
+      <div class="w-full col-span-2 text-muted-foreground ml-2 text-sm">Top most starred repos</div>
 
-    <SkillsSection/>
-    <div class="grid grid-cols-3 gap-4 w-full">
       <div
           v-for="item in data"
           :key="item.name"
-          class="flex flex-col items-start gap-2 rounded-lg border p-3 text-left text-sm transition-all hover:bg-accent cursor-pointer"
+          class="flex flex-col items-start gap-2 rounded-lg border p-3 text-left text-sm transition-all hover:bg-accent cursor-pointer shadow bg-card"
       >
         <div class="flex w-full flex-col gap-1">
           <div class="flex items-center">
@@ -43,7 +43,7 @@ const {user} = useUserSession()
 
         </div>
         <div class="line-clamp-2 text-xs text-muted-foreground">
-          {{ item.description }}
+          {{ item.description ?? 'No description provided for this repo' }}
         </div>
         <div class="ml-auto">
           <Button size="xs" variant="ghost">
@@ -55,6 +55,10 @@ const {user} = useUserSession()
 
       </div>
     </div>
+
+
+    <SkillsSection class="col-span-2"/>
+
   </div>
 </template>
 

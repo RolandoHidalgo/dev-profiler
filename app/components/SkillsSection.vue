@@ -1,23 +1,21 @@
 <script setup lang="ts">
-import { useForm } from 'vee-validate';
-import {z} from 'zod';
-import { toTypedSchema } from '@vee-validate/zod'
-const schema = z.object({
-  skill: z
-      .string({
-        required_error: 'Requerido.'
-      })
+const route = useRoute()
+const {user} = useUserSession()
+const {data: skills, refresh} = useFetch('/api/skills/list', {
+  method: 'post',
+  body: {
+    userName: route.params.id
+  }
 })
-const { values } = useForm({
-  validationSchema:toTypedSchema(schema)
-});
+const onSkillAdd = (id: number) => {
+  refresh()
+}
 </script>
 
 <template>
-  <div class="w-1/4 mb-2">
-    <form >
-      <SkillsAutocomplete label="skills"></SkillsAutocomplete>
-    </form>
+  <div>
+    <SkillsForm @submit="onSkillAdd" v-if="route.params.id === user.login"/>
+    <UserSkills :skills="skills"/>
   </div>
 </template>
 

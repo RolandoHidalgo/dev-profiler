@@ -15,6 +15,13 @@
       "when": 1729661291618,
       "tag": "0001_clumsy_amazoness",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1729743308765,
+      "tag": "0002_sharp_lenny_balinger",
+      "breakpoints": true
     }
   ]
 }

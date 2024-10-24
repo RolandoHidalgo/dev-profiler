@@ -6,6 +6,7 @@ export const users = sqliteTable('users', {
     id: integer('id').primaryKey({autoIncrement: true}),
     githubId: integer('github_id').unique(),
     githubToken: text('github_token'),
+    userName: text('username'),
     createdAt: text('created_at')
         .notNull()
         .$defaultFn(() => sql`(current_timestamp)`),
