@@ -6,6 +6,7 @@ import {useToast} from "@/components/ui/toast";
 import {
   PlusCircle,
 } from 'lucide-vue-next'
+import {ReloadIcon} from "@radix-icons/vue";
 
 const route = useRoute()
 const showField = ref(false)
@@ -18,11 +19,11 @@ const schema = z.object({
         required_error: 'Requerido.'
       })
 })
-const {values, handleSubmit} = useForm({
+const {values, handleSubmit,isSubmitting} = useForm({
   validationSchema: toTypedSchema(schema)
 });
 const {toast} = useToast()
-const submit = handleSubmit(async (values) => {
+const submit = handleSubmit(async (values,ctx) => {
   try {
     await $fetch('/api/skills', {
       method: 'post',
@@ -36,6 +37,7 @@ const submit = handleSubmit(async (values) => {
 
     })
     emit('submit', Number(values.skill))
+    ctx.resetForm();
   } catch (e) {
     toast({
       title: 'Uh oh! Something went wrong.',
@@ -53,7 +55,8 @@ const submit = handleSubmit(async (values) => {
       <SkillsAutocomplete label="skills" ></SkillsAutocomplete>
 
       <Button size="sm" class="h-7 gap-1" type="submit">
-        <PlusCircle class="h-3.5 w-3.5"/>
+        <PlusCircle class="h-3.5 w-3.5" v-if="!isSubmitting"/>
+        <ReloadIcon class="w-4 h-4 animate-spin" v-else/>
         <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">
                   Add Skill
                 </span>

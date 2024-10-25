@@ -24,6 +24,11 @@ const {loggedIn} = useUserSession();
         </h1>
         <MainNav class="mx-6"/>
         <div class="ml-auto flex items-center space-x-4">
+          <NuxtLink to="https://github.com/RolandoHidalgo/dev-profiler" target="_blank">
+            <Button variant="ghost" size="icon">
+              <GithubLogoIcon class="w-6 h-6"/>
+            </Button>
+          </NuxtLink>
           <ThemeSwitcher/>
           <NuxtLink to="/api/auth/github" external v-if="!loggedIn">
             <Button variant="outline">

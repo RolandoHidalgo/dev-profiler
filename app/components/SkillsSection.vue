@@ -10,12 +10,15 @@ const {data: skills, refresh} = useFetch('/api/skills/list', {
 const onSkillAdd = (id: number) => {
   refresh()
 }
+const onSkillDeleted = (id:number)=>{
+  refresh()
+}
 </script>
 
 <template>
   <div>
     <SkillsForm @submit="onSkillAdd" v-if="route.params.id === user.login"/>
-    <UserSkills :skills="skills"/>
+    <UserSkills :skills="skills" @deleted="onSkillDeleted"/>
   </div>
 </template>
 
