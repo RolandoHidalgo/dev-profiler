@@ -37,7 +37,7 @@
     "@iconify-json/logos": "^1.2.3",
     "@iconify-json/skill-icons": "^1.2.0",
     "@nuxt/icon": "^1.5.6",
-    "@nuxthub/core": "^0.7.34",
+    "@nuxthub/core": "^0.7.37",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@pinia/nuxt": "^0.5.5",
     "drizzle-kit": "^0.26.2",
