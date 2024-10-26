@@ -50,7 +50,7 @@ const submit = handleSubmit(async (values,ctx) => {
 </script>
 
 <template>
-  <div class="w-1/4 mb-2 ml-auto">
+  <div class="w-1/4 my-2 ml-auto pr-2">
     <form @submit="submit" class="flex items-center gap-1">
       <SkillsAutocomplete label="skills" ></SkillsAutocomplete>
 

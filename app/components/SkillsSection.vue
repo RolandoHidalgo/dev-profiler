@@ -17,7 +17,7 @@ const onSkillDeleted = (id:number)=>{
 
 <template>
   <div>
-    <SkillsForm @submit="onSkillAdd" v-if="route.params.id === user.login"/>
+    <SkillsForm @submit="onSkillAdd" v-if="route.params.id === user?.login"/>
     <UserSkills :skills="skills" @deleted="onSkillDeleted"/>
   </div>
 </template>

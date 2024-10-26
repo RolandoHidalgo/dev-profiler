@@ -22,6 +22,7 @@ const {loggedIn} = useUserSession();
         <h1 class="ml-1 text-xl font-semibold">
           DevProfiler
         </h1>
+        <Badge variant="secondary" class="ml-1 text-xs font-medium  ">Beta</Badge>
         <MainNav class="mx-6"/>
         <div class="ml-auto flex items-center space-x-4">
           <NuxtLink to="https://github.com/RolandoHidalgo/dev-profiler" target="_blank">
@@ -31,9 +32,9 @@ const {loggedIn} = useUserSession();
           </NuxtLink>
           <ThemeSwitcher/>
           <NuxtLink to="/api/auth/github" external v-if="!loggedIn">
-            <Button variant="outline">
-              <GithubLogoIcon class="w-4 h-4 mr-2"/>
-              login
+            <Button variant="outline" class="filter invert-0">
+              <GithubLogoIcon class="w-4 h-4 mr-2 "/>
+              Login with GitHub
             </Button>
           </NuxtLink>
           <UserNav v-else/>

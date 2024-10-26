@@ -53,8 +53,8 @@ const onDelete = async (id: number) => {
       <Button
           class="absolute right-0 top-0  rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
           size="icon" variant="ghost" @click="onDelete(item.id)" :disabled="isDeleting[item.id]">
-        <Cross2Icon class="w-3 h-3 " v-if="!isDeleting[item.id] && route.params.id === user.login"/>
-        <ReloadIcon class="w-4 h-4 animate-spin" v-else/>
+        <Cross2Icon class="w-3 h-3 " v-if="!isDeleting[item.id] && route.params.id === user?.login"/>
+        <ReloadIcon class="w-4 h-4 animate-spin" v-if="isDeleting[item.id]"/>
       </Button>
 
 
