@@ -17,11 +17,8 @@ const {toast} = useToast()
 const onDelete = async (id: number) => {
   isDeleting.value[id] = true
   try {
-    await $fetch('/api/skills', {
+    await $fetch(`/api/skills/${Number(id)}`, {
       method: 'delete',
-      body: {
-        skillId: id
-      }
     })
     toast({
       title: 'OK.',
