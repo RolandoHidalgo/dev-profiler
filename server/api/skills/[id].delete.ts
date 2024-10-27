@@ -1,5 +1,5 @@
 import {z} from "zod";
-
+import { eq, and } from 'drizzle-orm'
 export default defineEventHandler(async (event) => {
     const {id: skillId} = await getValidatedRouterParams(event, z.object({id: z.coerce.number()}).parse)
     const {user} = await requireUserSession(event);
