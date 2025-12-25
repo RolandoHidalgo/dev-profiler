@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     devtools: {enabled: true},
     modules: ['@nuxthub/core', 'nuxt-auth-utils', '@nuxtjs/tailwindcss', 'shadcn-nuxt','@nuxt/fonts', '@nuxt/icon'],
     hub: {
-        database: true
+        db: 'sqlite'
     },
     fonts:{
         families: [
